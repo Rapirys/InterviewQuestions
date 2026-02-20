@@ -1,10 +1,11 @@
 package org.example;
 
+import java.util.List;
 
 class Solution {
 
-  public int planWork(int[] rewards) {
-    return 0;
+  public List<List<Integer>> allocateResources(int[] instanceCosts, int budget) {
+    return null;
   }
 
 }

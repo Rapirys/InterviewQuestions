@@ -1,43 +1,48 @@
 ## Problem Statement
 
-You are a freelance developer planning your work schedule for a sequence of upcoming days. You have
-a list of potential daily contracts, represented by an integer array `nums`, where `nums[i]`
-represents the payment offered for a project on day `i`.
+You are a DevOps engineer tasked with configuring a custom server cluster for a client. You have a list of available instance types, represented by an array `instance_costs`, where each integer represents the hourly cost of a specific server type.
 
-However, you have a strict personal rule to maintain your health: **to prevent burnout, you cannot
-work two consecutive days.**
+The client has a strict hourly budget, represented by the integer `budget`. Your task is to find **all possible unique cluster configurations** where the total hourly cost equals the `budget` exactly.
 
-Given the array of potential daily payments, return the **maximum amount of money** you can earn
-without breaking your anti-burnout rule.
+**Rules:**
+1. You can provision **as many instances of the same type** as you need (unlimited usage).
+2. The order of instances in a configuration does not matter.
+3. Two configurations are considered different only if the quantity of at least one instance type chosen is different.
+
+Return a list of all valid configurations.
 
 ## Examples
 
 ### Example 1
 
-**Input:** `nums = [1, 2, 3, 1]`
-**Output:** `4`
+**Input:** `instance_costs = [2, 3, 6, 7]`, `budget = 7`
+**Output:** `[[2, 2, 3], [7]]`
 **Explanation:**
-
-- Take the contract on Day 1 (pay = 1).
-- Skip Day 2 to rest.
-- Take the contract on Day 3 (pay = 3).
-- Skip Day 4.
-- **Total earnings:** 1 + 3 = 4.
+You can achieve a total cost of 7 using these two configurations:
+1. Two instances costing 2 and one instance costing 3 ($2 + 2 + 3 = 7$).
+2. One instance costing 7 ($7 = 7$).
 
 ### Example 2
 
-**Input:** `nums = [2, 7, 9, 3, 1]`
-**Output:** `12`
+**Input:** `instance_costs = [2, 3, 5]`, `budget = 8`
+**Output:** `[[2, 2, 2, 2], [2, 3, 3], [3, 5]]`
 **Explanation:**
+The available configurations to hit the budget of 8 are:
+- Four instances of cost 2.
+- One instance of cost 2 and two instances of cost 3.
+- One instance of cost 3 and one instance of cost 5.
 
-- Take contract on Day 1 (pay = 2).
-- Skip Day 2.
-- Take contract on Day 3 (pay = 9).
-- Skip Day 4.
-- Take contract on Day 5 (pay = 1).
-- **Total earnings:** 2 + 9 + 1 = 12.
+### Example 3
+
+**Input:** `instance_costs = [2]`, `budget = 1`
+**Output:** `[]`
+**Explanation:**
+The minimum cost is 2, so it is impossible to satisfy a budget of 1.
 
 ## Constraints
 
-- `1 <= nums.length <= 100`
-- `0 <= nums[i] <= 400`
+- `1 <= instance_costs.length <= 30`
+- `2 <= instance_costs[i] <= 40`
+- All elements of `instance_costs` are **distinct**.
+- `1 <= budget <= 40`
+- The output is guaranteed to have fewer than 150 unique combinations.
