@@ -14,7 +14,7 @@ class SolutionParameterizedTest {
   @ParameterizedTest(name = "rob({0}) -> {1}")
   @CsvFileSource(resources = "/rob_cases.csv", numLinesToSkip = 1)
   void shouldSolveProvidedExamples(String nums, int expected) {
-    assertThat(solution.rob(parseInput(nums))).isEqualTo(expected);
+    assertThat(solution.planWork(parseInput(nums))).isEqualTo(expected);
   }
 
   private static int[] parseInput(String s) {

@@ -15,7 +15,7 @@ class SolutionExampleTest {
   @ParameterizedTest(name = "rob({0}) = {1}")
   @MethodSource("exampleCases")
   void shouldSolveProvidedExamples(int[] nums, int expected) {
-    int result = solution.rob(nums);
+    int result = solution.planWork(nums);
     assertThat(result).isEqualTo(expected);
   }
 
